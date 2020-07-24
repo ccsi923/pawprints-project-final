@@ -17,4 +17,8 @@ public class Comment {
     private String comment;
     private Long userId;
 
+    public Comment(String comment, Long userId) {
+        this.comment = comment;
+        this.userId = userId;
+    }
 }

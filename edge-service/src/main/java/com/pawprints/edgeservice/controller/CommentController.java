@@ -1,8 +1,7 @@
-package com.example.clientcomments.controller;
+package com.pawprints.edgeservice.controller;
 
-import com.example.clientcomments.controller.impl.CommentControllerImpl;
-import com.example.clientcomments.model.Comment;
-import com.example.clientcomments.service.CommentService;
+import com.pawprints.edgeservice.model.Comment;
+import com.pawprints.edgeservice.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class CommentController implements CommentControllerImpl {
+public class CommentController {
 
     @Autowired
     private CommentService commentService;

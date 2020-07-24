@@ -27,6 +27,7 @@ import { ClientOrderComponent } from './client-order/client-order.component';
 import { IncomesComponent } from './incomes/incomes.component';
 import { ExpensesComponent } from './expenses/expenses.component';
 import { ReportClientProductOrderedComponent } from './report-client-product-ordered/report-client-product-ordered.component';
+import { ClientCommentsComponent } from './client-comments/client-comments.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { ReportClientProductOrderedComponent } from './report-client-product-ord
     IncomesComponent,
     ExpensesComponent,
     ReportClientProductOrderedComponent,
+    ClientCommentsComponent,
   ],
   imports: [
     BrowserModule,
