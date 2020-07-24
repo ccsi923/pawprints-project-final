@@ -1,0 +1,35 @@
+<app-layout>
+  <div class="content">
+    <div class="row">
+      <table cellspacing="0" cellpadding="0" class="table table-borderless table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Order id</th>
+            <th scope="col">Comments</th>
+            <th scope="col">Actual status</th>
+            <th scope="col">Update status</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let provider of providerOrders">
+          <tr>
+
+            <td id="opId">{{ provider.id }}</td>
+            <td>
+              {{ provider.comments }}
+            </td>
+            <td>
+              {{ provider.status }}
+            </td>
+            <td>
+              <button class="input-group-append" (click)="updateOrder(provider.id)" type="button"
+                class="btn btn-outline-light" [disabled]="
+                      provider.status === full">
+                Acepted Provider Order
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</app-layout>

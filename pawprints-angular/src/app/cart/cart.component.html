@@ -1,9 +1,15 @@
 <app-layout>
   <div class="content">
 
-    <div class="row">
+    <div [hidden]="user != null" class="row">
+      <h3> Please Register or Log-in if you want to buy</h3>
+      <button class="btn btn-fill btn-success" [hidden]="user != null" (click)="navigate('/login')">Log-in</button>
+      <button class="btn btn-fill btn-success" [hidden]="user != null" (click)="navigate('/register')">
+        Register</button>
+    </div>
+    <div [hidden]="user == null" class="row">
 
-      <table [hidden]="products == undefined" cellspacing="0" cellpadding="0" class="table table-striped">
+      <table [hidden]="products === undefined" cellspacing="0" cellpadding="0" class="table table-striped">
         <thead>
           <tr class="column">
             <th scope="col">
@@ -37,7 +43,7 @@
         </tbody>
       </table>
     </div>
-    <div class="row">
+    <div [hidden]="user == null" class="row">
       <div class="col-md-8">
         <div class="card">
           <div class="">
@@ -68,14 +74,10 @@
               </div>
             </div>
             <div>
-              <button [disabled]="!isProductValid || authData == null " class="btn btn-fill btn-success"
+              <button [disabled]="!isProductValid || user == null " class="btn btn-fill btn-success"
                 (click)="onSubmitProduct()">
                 Add product
               </button>
-              <button class="btn btn-fill btn-success" [hidden]="authData != null"
-                (click)="navigate('/login')">Log-in</button>
-              <button class="btn btn-fill btn-success" [hidden]="authData != null" (click)="navigate('/register')">
-                Register</button>
             </div>
           </form>
         </div>
@@ -83,7 +85,7 @@
     </div>
 
 
-    <div class="row">
+    <div [hidden]="user == null" class="row">
       <div class="col-md-8">
         <div class="card">
           <form [formGroup]="cartForm" (ngSubmit)="onSubmit()">
@@ -106,9 +108,9 @@
               <div class="col-md-5 pl-md-4">
                 <div class="form-group">
                   <label for="exampleInputEmail1"> Comments </label>
-                  <input class="form-control {{
+                  <textarea class="form-control {{
                 this.cartForm.get('comments')?.errors ? 'is-invalid' : ''
-              }}" formControlName="comments" />
+              }}" formControlName="comments"></textarea>
                 </div>
               </div>
               <div class="col-md-5 pl-md-4">
@@ -127,7 +129,7 @@
               </div>
             </div>
             <div>
-              <button [disabled]="!isValid || authData == null" class="btn btn-fill btn-danger" type="submit">
+              <button [disabled]="!isValid || user == null" class="btn btn-fill btn-danger" type="submit">
                 Save
               </button>
             </div>

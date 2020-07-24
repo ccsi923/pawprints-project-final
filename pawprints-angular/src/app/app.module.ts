@@ -28,6 +28,7 @@ import { IncomesComponent } from './incomes/incomes.component';
 import { ExpensesComponent } from './expenses/expenses.component';
 import { ReportClientProductOrderedComponent } from './report-client-product-ordered/report-client-product-ordered.component';
 import { ClientCommentsComponent } from './client-comments/client-comments.component';
+import { AcceptProviderOrderComponent } from './accept-provider-order/accept-provider-order.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { ClientCommentsComponent } from './client-comments/client-comments.compo
     ExpensesComponent,
     ReportClientProductOrderedComponent,
     ClientCommentsComponent,
+    AcceptProviderOrderComponent,
   ],
   imports: [
     BrowserModule,

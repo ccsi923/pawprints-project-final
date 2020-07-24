@@ -43,9 +43,10 @@ export class ExpensesComponent implements OnInit {
           this.incomes.push(result[0]);
           this.dates.push(result[1]);
         });
-        this.updateTable(myChartData, this.incomes, this.dates);
+        this.drawTable(this.incomes, this.dates);
       });
-
+  }
+  public drawTable(incomes, dates) {
     var gradientChartOptionsConfigurationWithTooltipRed: any = {
       maintainAspectRatio: false,
       legend: {
@@ -130,7 +131,7 @@ export class ExpensesComponent implements OnInit {
     var myChartData = new Chart(this.ctx, {
       type: 'line',
       data: {
-        labels: this.dates,
+        labels: dates,
         datasets: [
           {
             label: '',
@@ -147,13 +148,14 @@ export class ExpensesComponent implements OnInit {
             pointHoverRadius: 4,
             pointHoverBorderWidth: 15,
             pointRadius: 4,
-            data: this.incomes,
+            data: incomes,
           },
         ],
       },
       options: gradientChartOptionsConfigurationWithTooltipRed,
     });
   }
+
   /* public updateOptions() {
     this.myChartData.data.datasets[0].data = this.data;
     this.myChartData.update();

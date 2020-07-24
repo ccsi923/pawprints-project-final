@@ -47,8 +47,11 @@ export class StatsReportComponent implements OnInit {
           this.status.push(result[0]);
           this.count.push(result[1]);
         });
-        this.updateTable(myChartData, this.status, this.count);
+        this.drawTable(this.status, this.count);
       });
+  }
+
+  public drawTable(status, count) {
     var gradientBarChartConfiguration: any = {
       maintainAspectRatio: false,
       legend: {
@@ -110,7 +113,7 @@ export class StatsReportComponent implements OnInit {
     var myChartData = new Chart(this.ctx, {
       type: 'bar',
       data: {
-        labels: this.status,
+        labels: status,
         datasets: [
           {
             label: 'Contacts',
@@ -121,13 +124,14 @@ export class StatsReportComponent implements OnInit {
             borderWidth: 2,
             borderDash: [],
             borderDashOffset: 0.0,
-            data: this.count,
+            data: count,
           },
         ],
       },
       options: gradientBarChartConfiguration,
     });
   }
+
   public updateTable(chart, status, count) {
     chart.data.labels = status;
     chart.data.datasets[0].data = count;

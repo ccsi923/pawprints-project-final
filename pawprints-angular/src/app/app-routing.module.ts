@@ -17,6 +17,7 @@ import { IncomesComponent } from './incomes/incomes.component';
 import { ExpensesComponent } from './expenses/expenses.component';
 import { ReportClientProductOrderedComponent } from './report-client-product-ordered/report-client-product-ordered.component';
 import { ClientCommentsComponent } from './client-comments/client-comments.component';
+import { AcceptProviderOrderComponent } from './accept-provider-order/accept-provider-order.component';
 const routes: Routes = [
   {
     path: '',
@@ -105,6 +106,11 @@ const routes: Routes = [
   {
     path: 'client/comments',
     component: ClientCommentsComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'admin/accept/providerorder',
+    component: AcceptProviderOrderComponent,
     pathMatch: 'full',
   },
 ];

@@ -37,6 +37,7 @@ export class AuthenticationService {
           user.authdata = window.btoa(username + ':' + password);
           localStorage.setItem('user', JSON.stringify(user));
           this.userSubject.next(user);
+          console.log(user);
           return user;
         })
       );
@@ -46,6 +47,6 @@ export class AuthenticationService {
     // remove user from local storage to log user out
     localStorage.removeItem('user');
     this.userSubject.next(null);
-    this.router.navigate(['/shop']);
+    this.router.navigate(['/login']);
   }
 }

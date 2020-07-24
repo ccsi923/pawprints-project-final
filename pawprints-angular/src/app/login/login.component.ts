@@ -64,6 +64,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log('entering');
     this.disabled = true;
     if (this.loginForm.invalid) {
       this.disabled = false;
@@ -89,6 +90,7 @@ export class LoginComponent implements OnInit {
           );
         },
         (error) => {
+          this.router.navigate(['/login']);
           this.error = error;
           this.toastr.error(
             `<span class="tim-icons icon-bell-55" [data-notify]="icon"></span> Invalid Username or Password combination`,

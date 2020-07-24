@@ -39,7 +39,7 @@ export class RegisUserComponent implements OnInit {
   });
 
   loading = false;
-  returnUrl = '/shop';
+  returnUrl = '/login';
   error = '';
   constructor(
     private toastr: ToastrService,
@@ -108,7 +108,6 @@ export class RegisUserComponent implements OnInit {
   }
   toggleDisplay() {
     this.isShow = !this.isShow;
-    console.log(this.isShow);
   }
 
   onSubmit() {
@@ -143,7 +142,7 @@ export class RegisUserComponent implements OnInit {
             positionClass: 'toast-top-center',
           }
         );
-        console.log(data), this.router.navigate([this.returnUrl]);
+        this.router.navigate([this.returnUrl]);
       },
       (error) => {
         this.toastr.error(

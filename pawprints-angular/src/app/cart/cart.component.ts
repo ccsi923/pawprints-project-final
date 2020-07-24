@@ -30,6 +30,7 @@ export class CartComponent implements OnInit {
   returnUrl = '/shop';
   quantityTotal = 0;
   authData = null;
+  user = this.authenticationService.userValue;
   productTypes: ProductType[] = [
     ProductType.Lineage,
     ProductType.Health,
@@ -62,7 +63,7 @@ export class CartComponent implements OnInit {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization: `Basic ${this.authenticationService.userValue.authdata}`,
+      Authorization: `Basic ${this.authenticationService.userValue?.authdata}`,
     }),
   };
 
@@ -85,16 +86,17 @@ export class CartComponent implements OnInit {
     this.cartForm.valueChanges.subscribe((input) => {
       this.isValid = !this.cartForm.invalid;
     });
-
-    this.http
-      .get<Animal[]>(`${environment.apiUrl}/animals/owner`, this.httpOptions)
-      .subscribe(
-        (data) => {
-          this.animals = data;
-          console.log(data);
-        },
-        (error) => console.log(error)
-      );
+    if (this.user != null) {
+      this.http
+        .get<Animal[]>(`${environment.apiUrl}/animals/owner`, this.httpOptions)
+        .subscribe(
+          (data) => {
+            this.animals = data;
+            console.log(data);
+          },
+          (error) => console.log(error)
+        );
+    }
   }
 
   // convenience getter for easy access to form fields

@@ -50,8 +50,11 @@ export class ReportClientProductOrderedComponent implements OnInit {
           product.push(result[0]);
           count.push(result[1]);
         });
-        this.updateTable(myChartData, product, count);
+        this.drawTable(product, count);
       });
+  }
+
+  public drawTable(salesreps, leadBySalesreps) {
     var gradientBarChartConfiguration: any = {
       maintainAspectRatio: false,
       legend: {
@@ -113,10 +116,10 @@ export class ReportClientProductOrderedComponent implements OnInit {
     var myChartData = new Chart(this.ctx, {
       type: 'bar',
       data: {
-        labels: [],
+        labels: salesreps,
         datasets: [
           {
-            label: 'Contacts',
+            label: 'Products sold',
             fill: true,
             backgroundColor: gradientStroke,
             hoverBackgroundColor: gradientStroke,
@@ -124,14 +127,13 @@ export class ReportClientProductOrderedComponent implements OnInit {
             borderWidth: 2,
             borderDash: [],
             borderDashOffset: 0.0,
-            data: [],
+            data: leadBySalesreps,
           },
         ],
       },
       options: gradientBarChartConfiguration,
     });
   }
-
   public updateTable(chart, salesreps, leadBySalesreps) {
     chart.data.labels = salesreps;
     chart.data.datasets[0].data = leadBySalesreps;

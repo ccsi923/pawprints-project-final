@@ -15,7 +15,7 @@ public class CorsConfiguration {
                 registry.addMapping("/**")
                         .allowedMethods("GET", "POST", "PUT", "DELETE")
                         .allowedHeaders("*")
-                        .allowedOrigins("http://localhost:4200", "http://localhost:4201")
+                        .allowedOrigins("http://localhost:4200", "http://localhost:4201", "https://pawprints-final.web.app/")
                 ;
             }
         };
