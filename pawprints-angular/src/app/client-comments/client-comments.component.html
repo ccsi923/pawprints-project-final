@@ -4,12 +4,6 @@
       <div class="col-sm-10 col-sm-offset-1" id="logout">
         <div class="page-header">
           <h3 class="reviews">Leave your comment</h3>
-          <div class="logout">
-            <button class="btn btn-default btn-circle text-uppercase" type="button"
-              onclick="$('#logout').hide(); $('#login').show()">
-              <span class="glyphicon glyphicon-off"></span> Logout
-            </button>
-          </div>
         </div>
         <div class="comment-tabs">
           <ul class="nav nav-tabs" role="tablist">
@@ -19,26 +13,14 @@
             <li><a href="#add-comment" role="tab" data-toggle="tab">
                 <h4 class="reviews text-capitalize">Add comment</h4>
               </a></li>
-            <li><a href="#account-settings" role="tab" data-toggle="tab">
-                <h4 class="reviews text-capitalize">Account settings</h4>
-              </a></li>
           </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="comments-logout">
               <ul class="media-list">
                 <li class="media">
-                  <a class="pull-left" href="#">
-                    <img class="media-object img-circle"
-                      src="https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg" alt="profile">
-                  </a>
                   <div class="media-body">
                     <div class="well well-lg">
                       <h4 class="media-heading text-uppercase reviews">Marco </h4>
-                      <ul class="media-date text-uppercase reviews list-inline">
-                        <li class="dd">22</li>
-                        <li class="mm">09</li>
-                        <li class="aaaa">2014</li>
-                      </ul>
                       <p class="media-comment">
                         Great snippet! Thanks for sharing.
                       </p>
@@ -199,57 +181,6 @@
                 </div>
               </form>
             </div>
-            <div class="tab-pane" id="account-settings">
-              <form action="#" method="post" class="form-horizontal" id="accountSetForm" role="form">
-                <div class="form-group">
-                  <label for="avatar" class="col-sm-2 control-label">Avatar</label>
-                  <div class="col-sm-10">
-                    <div class="custom-input-file">
-                      <label class="uploadPhoto">
-                        Edit
-                        <input type="file" class="change-avatar" name="avatar" id="avatar">
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="name" class="col-sm-2 control-label">Name</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="name" id="name" placeholder="Vilma palma">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="nickName" class="col-sm-2 control-label">Nick name</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="nickName" id="nickName" placeholder="Vilma">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="email" class="col-sm-2 control-label">Email</label>
-                  <div class="col-sm-10">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="vilma@mail.com">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="newPassword" class="col-sm-2 control-label">New password</label>
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" name="newPassword" id="newPassword">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="confirmPassword" class="col-sm-2 control-label">Confirm password</label>
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" name="confirmPassword" id="confirmPassword">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-10">
-                    <button class="btn btn-primary btn-circle text-uppercase" type="submit" id="submit">Save
-                      changes</button>
-                  </div>
-                </div>
-              </form>
-            </div>
           </div>
         </div>
       </div>
@@ -272,9 +203,6 @@
               </a></li>
             <li><a href="#add-comment-disabled" role="tab" data-toggle="tab">
                 <h4 class="reviews text-capitalize">Add comment</h4>
-              </a></li>
-            <li><a href="#new-account" role="tab" data-toggle="tab">
-                <h4 class="reviews text-capitalize">Create an account</h4>
               </a></li>
           </ul>
           <div class="tab-content">
@@ -501,10 +429,4 @@
         </div>
       </div>
     </div>
-    <div class="page-header text-center">
-      <h3 class="reviews"><span class="glyphicon glyphicon-magnet"></span> Uicomments by <a
-          href="https://twitter.com/maridlcrmn">maridlcrmn</a></h3>
-    </div>
-    <div class="notes text-center"><small>Image credits: uifaces.com</small></div>
-  </div>
 </app-layout>
