@@ -1,0 +1,79 @@
+<app-layout>
+  <div class="content">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="title">Add New Animal</h5>
+          </div>
+
+          <div class="card-body">
+            <form [formGroup]="animalForm" (ngSubmit)="onSubmit()">
+              <label>Information Contact</label>
+              <div class="row">
+                <div class="col-md-5 pr-md-1">
+                  <div class="form-group">
+                    <label>Name</label>
+                    <input class="form-control {{
+                            this.animalForm.get('name')?.errors ? 'is-invalid' : ''
+                          }}" placeholder="ex: Gödel" type="text" formControlName="name" />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 pr-md-1">
+                  <div class="form-group">
+                    <label> Age </label>
+                    <input class="form-control {{
+                            this.animalForm.get('age')?.errors ? 'is-invalid' : ''
+                          }}" placeholder="3" type="number" formControlName="age" />
+                  </div>
+                </div>
+                <div class="col-md-6 pl-md-1">
+                  <div class="form-group">
+                    <label> Animal Type </label>
+                    <select class="form-control {{
+                            this.animalForm.get('animal')?.errors
+                              ? 'is-invalid'
+                              : ''
+                          }}" placeholder="DOG" formControlName="animal" id="animal">
+                      <option *ngFor="let animal of animalTypes" [value]="animal">
+                        {{ animal }}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button [disabled]="!isValid" class="btn btn-fill btn-success" type="submit">
+                  Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-user">
+          <div class="card-body">
+            <p class="card-text"></p>
+            <div class="author">
+              <p class="description">Create Leads</p>
+            </div>
+            <div class="card-description">
+              To create an animal this is the information you need to include:
+              <br />
+              - Name
+              <br />
+              - Age
+              <br />
+              - Animal Type
+            </div>
+          </div>
+          <div class="card-footer"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</app-layout>

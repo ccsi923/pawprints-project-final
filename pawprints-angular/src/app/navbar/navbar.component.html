@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
+  <div class="container-fluid">
+    <div class="navbar-wrapper">
+      <div class="navbar-toggle d-inline">
+        <button class="navbar-toggler" type="button" (click)="sidebarToggle()">
+          <span class="navbar-toggler-bar bar1"> </span>
+          <span class="navbar-toggler-bar bar2"> </span>
+          <span class="navbar-toggler-bar bar3"> </span>
+        </button>
+      </div>
+      <a class="navbar-brand" href="javascript:void(0)"> {{ getTitle() }} </a>
+    </div>
+    <button aria-label="Toggle navigation" class="navbar-toggler" (click)="collapse()"
+      [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample" id="navigation" type="button">
+      <span class="navbar-toggler-bar navbar-kebab"> </span>
+      <span class="navbar-toggler-bar navbar-kebab"> </span>
+      <span class="navbar-toggler-bar navbar-kebab"> </span>
+    </button>
+    <div class="navbar-collapse" id="navigation">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" ngbDropdown>
+          <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)" ngbDropdownToggle>
+            <p class="space">
+              <!-- Log in -->
+              {{ isLogged ? user.username : default }}
+            </p>
+            <b class="caret d-none d-lg-block d-xl-block"> </b>
+            <p class="d-lg-none"> Log out</p>
+            <p class="d-lg-none"> My orders</p>
+            <p class="d-lg-none">Register animal</p>
+            <p class="d-lg-none"> Register</p>
+            <p class="d-lg-none">Login</p>
+          </a>
+
+          <ul class="dropdown-navbar" ngbDropdownMenu>
+            <li class="nav-link">
+              <a [hidden]="!isLogged" class="nav-item" href="javascript:void(0)" ngbDropdownItem (click)="logout()">
+                Log out
+              </a>
+              <a [hidden]="!isLogged" class="nav-item" href="javascript:void(0)" ngbDropdownItem
+                (click)="navigate('/client/orders')">
+                My orders
+              </a>
+              <a [hidden]="!isLogged" class="nav-item" href="javascript:void(0)" ngbDropdownItem
+                (click)="navigate('/register/animal')">
+                Register animal
+              </a>
+              <a [hidden]="isLogged" class="nav-item" href="javascript:void(0)" ngbDropdownItem
+                (click)="navigate('/register')">
+                Register
+              </a>
+              <a [hidden]="isLogged" class="nav-item" href="javascript:void(0)" ngbDropdownItem
+                (click)="navigate('/login')">
+                Login
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="separator d-lg-none"></li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,58 @@
+<div class="logo">
+  <a class="simple-text logo-mini">
+    <div class="logo-img">
+      <img src="./assets/img/pawprints.png" />
+    </div>
+  </a>
+  <a class="simple-text logo-normal">
+    Pawprints
+  </a>
+</div>
+<div class="sidebar-wrapper">
+  <ul class="nav">
+    <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{ menuItem.class }} nav-item">
+      <a [hidden]="isAdmin" *ngIf="menuItem.title !== 'Admin'" [routerLink]="[menuItem.path]">
+        <i class="tim-icons  {{ menuItem.icon }}"></i>
+        <p>{{ menuItem.title }}</p>
+      </a>
+      <a [hidden]="!isAdmin" *ngIf="menuItem.title === 'Admin'" (click)="isClicked = !isClicked">
+        <i class="tim-icons  {{ menuItem.icon }}"></i>
+        <p>{{ menuItem.title }}</p>
+      </a>
+      <ul class="overflow" [hidden]="isClicked" *ngIf="menuItem.title === 'Admin'">
+        <li class="nav-link">
+          <a class="nav-item drop" href="javascript:void(0)" ngbDropdownItem (click)="navigate('/admin/incomes')">
+            Incomes
+          </a>
+        </li>
+        <li class="nav-link">
+          <a class="nav-item drop" href="javascript:void(0)" ngbDropdownItem (click)="navigate('/admin/expenses')">
+            Expenses
+          </a>
+        </li>
+        <li class="nav-link">
+          <a class="nav-item drop" href="javascript:void(0)" ngbDropdownItem (click)="navigate('/admin/order/status')">
+            Orders by status
+          </a>
+        </li>
+        <li class="nav-link">
+          <a class="nav-item drop" href="javascript:void(0)" ngbDropdownItem (click)="navigate('/admin/client/orders')">
+            Client Orders
+          </a>
+        </li>
+        <li class="nav-link">
+          <a class="nav-item drop" href="javascript:void(0)" ngbDropdownItem
+            (click)="navigate('/admin/provider/orders')">
+            Provider Orders
+          </a>
+        </li>
+        <li class="nav-link">
+          <a class="nav-item drop" href="javascript:void(0)" ngbDropdownItem
+            (click)="navigate('/admin/client/product')">
+            Client Products Stats
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

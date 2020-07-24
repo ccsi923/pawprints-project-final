@@ -1,0 +1,5 @@
+{
+  "name": "Config Server",
+  "description": "crm-homework-config-server",
+  "success_url": "/index.html"
+}

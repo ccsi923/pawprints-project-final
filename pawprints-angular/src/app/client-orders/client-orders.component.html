@@ -1,0 +1,28 @@
+<app-layout>
+  <div class="content">
+    <div class="row">
+      <table class="table table-borderless table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Total</th>
+            <th scope="col">Order Date</th>
+            <th scope="col">User</th>
+            <th scope="col">Animal</th>
+            <th scope="col">Payment</th>
+            <th scope="col">Status Order</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ord of orders">
+            <th id="opId">{{ ord.total }}</th>
+            <td>{{ ord.orderDate }}</td>
+            <td>{{ ord.userId }}</td>
+            <td>{{ ord.animalId }}</td>
+            <td>{{ ord.payment }}</td>
+            <td>{{ ord.statusOrder }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</app-layout>

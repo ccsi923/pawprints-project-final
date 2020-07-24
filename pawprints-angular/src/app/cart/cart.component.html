@@ -1,0 +1,140 @@
+<app-layout>
+  <div class="content">
+
+    <div class="row">
+
+      <table [hidden]="products == undefined" cellspacing="0" cellpadding="0" class="table table-striped">
+        <thead>
+          <tr class="column">
+            <th scope="col">
+              <h4> Product Type </h4>
+            </th>
+            <th scope="col">
+              <div>
+                <h4>Amount</h4>
+              </div>
+            </th>
+            <th scope="col">
+              <div>
+                <h4>Price per unit</h4>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let product of products">
+          <tr>
+            <td id="cart"> {{ product.productType }}
+              <div>
+                <a (click)="deleteProduct(product.elementId)"> Remove</a>
+              </div>
+            </td>
+            <td> {{product.requestedQuantity}} </td>
+            <td *ngIf="product.productType == productTypes[0]"> 129 € </td>
+            <td *ngIf="product.productType == productTypes[1]"> 199 € </td>
+            <td *ngIf="product.productType == productTypes[2]"> 279 € </td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="">
+            <h5 class="title">Add products</h5>
+          </div>
+          <form [formGroup]="productForm">
+
+            <label>Product Type</label>
+            <div class="row ">
+              <div class="col-md-5 pr-md-4">
+                <div class="form-group">
+                  <select class="form-control {{
+                this.productForm.get('productType')?.errors
+                  ? 'is-invalid'
+                  : ''
+              }}" formControlName="productType" id="productType">
+                    <option *ngFor="let productType of productTypes" [value]="productType">
+                      {{ productType }}
+                    </option>
+                  </select>
+                  <div class="form-group">
+                    <label> Amount </label>
+                    <input class="form-control {{
+                    this.productForm.get('requestedQuantity')?.errors ? 'is-invalid' : ''
+                  }}" placeholder="1" type="number" formControlName="requestedQuantity" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <button [disabled]="!isProductValid || authData == null " class="btn btn-fill btn-success"
+                (click)="onSubmitProduct()">
+                Add product
+              </button>
+              <button class="btn btn-fill btn-success" [hidden]="authData != null"
+                (click)="navigate('/login')">Log-in</button>
+              <button class="btn btn-fill btn-success" [hidden]="authData != null" (click)="navigate('/register')">
+                Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <form [formGroup]="cartForm" (ngSubmit)="onSubmit()">
+            <label></label>
+            <div class="row ">
+              <div class="col-md-5 pl-md-4">
+                <div class="form-group">
+                  <label> Animal </label>
+                  <select class="form-control {{
+                this.cartForm.get('animalId')?.errors
+                  ? 'is-invalid'
+                  : ''
+              }}" formControlName="animalId" id="animalId">
+                    <option *ngFor="let animal of animals" [value]="animal.id">
+                      {{ animal.name }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-5 pl-md-4">
+                <div class="form-group">
+                  <label for="exampleInputEmail1"> Comments </label>
+                  <input class="form-control {{
+                this.cartForm.get('comments')?.errors ? 'is-invalid' : ''
+              }}" formControlName="comments" />
+                </div>
+              </div>
+              <div class="col-md-5 pl-md-4">
+                <div class="form-group">
+                  <label> Payment type </label>
+                  <select class="form-control {{
+                this.cartForm.get('paymentType')?.errors
+                  ? 'is-invalid'
+                  : ''
+              }}" formControlName="paymentType" id="paymentType">
+                    <option *ngFor="let pay of paymentTypes" [value]="pay">
+                      {{ pay }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div>
+              <button [disabled]="!isValid || authData == null" class="btn btn-fill btn-danger" type="submit">
+                Save
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</app-layout>

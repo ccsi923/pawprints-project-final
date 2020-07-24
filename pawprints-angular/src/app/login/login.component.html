@@ -1,0 +1,49 @@
+<div class="container" id="container">
+  <div class="form-container sign-up-container">
+    <form action="#">
+      <h1 class="signin">Get started</h1>
+      <br />
+      <p class="message">
+        Use one of this credentials to start using the project.
+      </p>
+      <input type="text" value="Username: admin" disabled />
+      <input type="text" value="Password: admin" disabled />
+      <p class="message">Or</p>
+      <input type="text" value="Username: client" disabled />
+      <input type="text" value="Password: client" disabled />
+    </form>
+  </div>
+  <div>
+
+    <div class="form-container sign-in-container">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <h1 class="signin">Sign in</h1>
+        <br />
+        Username :
+        <input type="text" name="username" formControlName="username" /> Password
+        : <input type="password" name="password" formControlName="password" />
+        <button [disabled]="disabled" type="submit" class="btn btn-success">
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-left">
+        <h1>Start</h1>
+        <p>To buy a pawprint product go ahead and Log In</p>
+        <button class="ghost" id="signIn">Sign In</button>
+      </div>
+      <div class="overlay-panel overlay-right">
+        <h1>Hello, Friend!</h1>
+        <p>To see more details on how to get started click the button below</p>
+        <button class="ghost" id="signUp">More info</button>
+        <div class="back">
+          <button class="ghost" (click)="navigateTo('/shop')">Go back shop</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

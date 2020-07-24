@@ -1,0 +1,186 @@
+<app-layout>
+  <div class="content">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="title">Create New Lead</h5>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+              <label>User information</label>
+              <div class="row">
+                <div class="col-md-5 pr-md-1">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email</label>
+                    <input class="form-control {{
+                            this.userForm.get('userEmail')?.errors ? 'is-invalid' : ''
+                          }}" placeholder="ex: mongomeri@gmail.com" type="email" formControlName="userEmail" />
+                  </div>
+                </div>
+                <div class="col-md-3 px-md-1">
+                  <div class="form-group">
+                    <label> Username </label>
+                    <input class="form-control {{
+                            this.userForm.get('username')?.errors ? 'is-invalid' : ''
+                          }}" placeholder="ex: uniqueness" type="text" formControlName="username" />
+                  </div>
+                </div>
+                <div class="col-md-4 pl-md-1">
+                  <div class="form-group">
+                    <label> Password </label>
+                    <input class="form-control {{
+                            this.userForm.get('password')?.errors && passwordMismatch ? 'is-invalid' : ''
+                          }}" type="password" formControlName="password" />
+                  </div>
+                </div>
+                <div class="col-md-4 pl-md-1">
+                  <div class="form-group">
+                    <label> Confirm password </label>
+                    <input class="form-control {{passwordMismatch ? 'is-invalid' : ''}}  " type="password"
+                      formControlName="confirm" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 pr-md-1">
+                  <div class="form-group">
+                    <label> First adress</label>
+                    <div class="row">
+                      <div class="col-md-6 pr-md-1">
+                        <div class="form-group">
+                          <label> Adress </label>
+                          <input class="form-control {{
+                            this.userForm.get('addressStreet')?.errors ? 'is-invalid' : ''
+                          }}" placeholder="ex: Prado 12, 23A" type="text" formControlName="addressStreet" />
+                        </div>
+                      </div>
+                      <div class="col-md-6 pl-md-1">
+                        <div class="form-group">
+                          <label> Zip code </label>
+                          <input class="form-control {{
+                            this.userForm.get('addressZipCode')?.errors ? 'is-invalid' : ''
+                          }}" placeholder="ex: 28067" type="text" formControlName="addressZipCode" />
+                        </div>
+                      </div>
+                      <div class="col-md-6 pr-md-1">
+                        <div class="form-group">
+                          <label> City </label>
+                          <input class="form-control {{
+                                this.userForm.get('addressCity')?.errors ? 'is-invalid' : ''
+                              }}" placeholder="ex: Madrid" type="text" formControlName="addressCity" />
+                        </div>
+                      </div>
+                      <div class="col-md-6 pl-md-1">
+                        <div class="form-group">
+                          <label> Country </label>
+                          <input class="form-control {{
+                                this.userForm.get('addressCountry')?.errors ? 'is-invalid' : ''
+                              }}" placeholder="ex: Google" type="text" formControlName="addressCountry" />
+                        </div>
+                      </div>
+                      <div class="col-md-6 pr-md-1">
+                        <div class="form-group">
+                          <label> Phone </label>
+                          <input class="form-control {{
+                                    this.userForm.get('addressPhone')?.errors ? 'is-invalid' : ''
+                                  }}" placeholder="ex: 981234567" type="text" formControlName="addressPhone" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <label>Optional adress</label>
+              <div class="row">
+                <div class="col-md-6 pr-md-1">
+                  <div class="form-group">
+                    <label>Do you need to add another adress?</label>
+                  </div>
+                  <button class="btn btn-outline-light" type="button"
+                    (click)=toggleDisplay()>{{ isShow ? "No" : "Yes" }}</button>
+                </div>
+              </div>
+
+              <div class="row" [hidden]="!isShow">
+                <div class="col-md-6 pr-md-1">
+                  <div class="form-group">
+                    <label> Adress </label>
+                    <input class="form-control {{
+                      this.userForm.get('mailingStreet')?.errors ? 'is-invalid' : ''
+                    }}" placeholder="ex: Prado 12, 23A" type="text" formControlName="mailingStreet" />
+                  </div>
+                </div>
+                <div class="col-md-6 pl-md-1">
+                  <div class="form-group">
+                    <label> Zip code </label>
+                    <input class="form-control {{
+                      this.userForm.get('mailingZipCode')?.errors ? 'is-invalid' : ''
+                    }}" placeholder="ex: 28067" type="text" formControlName="mailingZipCode" />
+                  </div>
+                </div>
+                <div class="col-md-6 pr-md-1">
+                  <div class="form-group">
+                    <label> City </label>
+                    <input class="form-control {{
+                          this.userForm.get('mailingCity')?.errors ? 'is-invalid' : ''
+                        }}" placeholder="ex: Madrid" type="text" formControlName="mailingCity" />
+                  </div>
+                </div>
+                <div class="col-md-6 pl-md-1">
+                  <div class="form-group">
+                    <label> Country </label>
+                    <input class="form-control {{
+                          this.userForm.get('mailingCountry')?.errors ? 'is-invalid' : ''
+                        }}" placeholder="ex: Google" type="text" formControlName="mailingCountry" />
+                  </div>
+                </div>
+                <div class="col-md-6 pr-md-1">
+                  <div class="form-group">
+                    <label> Phone </label>
+                    <input class="form-control {{
+                              this.userForm.get('mailingPhone')?.errors ? 'is-invalid' : ''
+                            }}" placeholder="ex: 981234567" type="text" formControlName="mailingPhone" />
+                  </div>
+
+                </div>
+              </div>
+              <div class="card-footer">
+                <button [disabled]="!isValid" class="btn btn-fill btn-danger" type="submit">
+                  Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-user">
+          <div class="card-body">
+            <p class="card-text"></p>
+            <div class="author">
+              <p class="description">Create an user</p>
+            </div>
+            <div class="card-description">
+              To register, here is the information you need to include:
+              <br />
+              - Email
+              <br />
+              - Username (must be unique)
+              <br />
+              - Password
+              <br />
+              - First address
+              <br />
+              - Optional Secondary address
+            </div>
+          </div>
+          <div class="card-footer"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</app-layout>

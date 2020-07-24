@@ -1,0 +1,44 @@
+.container {
+  background: #2ba81b;
+  background: -webkit-linear-gradient(to right, #8e2bff, #415eff);
+  background: linear-gradient(to right, #240668, #0f8397);
+
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  color: #ffffff;
+  position: relative;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(12, 48, 37, 0.959), 0 10px 10px rgba(46, 47, 71, 0.171);
+
+  width: 800px;
+  width: 100%;
+  height: 700px;
+  align-items: center;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+img {
+  width: 30%;
+  height: 20%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title {
+  padding-top: 40px;
+}
+
+.influence {
+  padding-top: 100px;
+}
+
+.health {
+  padding-left: 70px;
+}
+
+p {
+  padding-bottom: 30px;
+}

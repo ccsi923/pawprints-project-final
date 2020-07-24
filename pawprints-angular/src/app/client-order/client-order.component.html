@@ -1,0 +1,66 @@
+<app-layout>
+  <div class="content">
+    <div class="row">
+      <table cellspacing="0" cellpadding="0" class="table table-borderless table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Comments</th>
+            <th scope="col">Product List</th>
+            <th scope="col">Actual status</th>
+            <th scope="col">Send kits</th>
+            <th scope="col">Update status</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let ord of clientOrders">
+          <tr>
+
+            <td id="opId">{{ ord.comments }}</td>
+            <td>
+              <ul *ngFor="let ordLine of ord.stockOrderLineList">
+                <li> Product: {{ordLine.productType}}</li>
+                <li> Amount: {{ordLine.requestedQuantity}}</li>
+              </ul>
+            </td>
+            <td id="opId">{{ ord.status }}</td>
+
+            <td>
+              <select [(ngModel)]="ord.kitStatus" class="custom-select" id="inputGroupSelect04"
+                [disabled]="ord.status === statusList[5] || ord.status === statusList[3] ">
+                <option *ngFor="let kit of ordersKits" [value]="kit">
+                  {{
+                         ord.status != statusList[5]
+                          ? kit
+                          :  "Order already closed"
+                      }}</option>
+              </select>
+              <button class="input-group-append" (click)="sendKit(ord.id, ord.kitStatus, ord.stockOrderLineList)"
+                type="button" class="btn btn-outline-light" [disabled]="
+                      !ord.newStatus ||
+                      ord.status == statusList[4]
+                    ">
+                Create kits
+              </button>
+            </td>
+
+            <td>
+              <select [(ngModel)]="ord.newStatus" class="custom-select" id="inputGroupSelect04">
+                <option *ngFor="let stat of statusList" [value]="stat">
+                  {{
+                       ord.status != statusList[5]
+                        ? stat
+                        : statusList[4]
+                    }}</option>
+              </select>
+              <button class="input-group-append" (click)="openUpdate(ord.id, ord.newStatus)" type="button"
+                class="btn btn-outline-light" [disabled]="
+                    !ord.newStatus">
+                Update
+              </button>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</app-layout>

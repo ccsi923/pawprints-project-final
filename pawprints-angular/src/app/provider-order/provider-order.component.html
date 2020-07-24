@@ -1,0 +1,99 @@
+<app-layout>
+  <div class="content">
+
+    <div class="row">
+
+      <table [hidden]="products == undefined" cellspacing="0" cellpadding="0" class="table table-striped">
+        <thead>
+          <tr class="column">
+            <th scope="col">
+              <h4> Product Id </h4>
+            </th>
+            <th scope="col">
+              <div>
+                <h4>Amount</h4>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let product of products">
+          <tr>
+            <td id="cart"> {{ product.productId }}
+              <div>
+                <a (click)="deleteProduct(product.elementId)"> Remove</a>
+              </div>
+            </td>
+            <td> {{product.requestedQuantity}} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="">
+            <h5 class="title">Add products</h5>
+          </div>
+          <form [formGroup]="orderLineForm">
+
+            <label>Product Type</label>
+            <div class="row ">
+              <div class="col-md-5 pr-md-4">
+                <div class="form-group">
+                  <select class="form-control {{
+                  this.orderLineForm.get('productId')?.errors
+                    ? 'is-invalid'
+                    : ''
+                }}" formControlName="productId" id="productId">
+                    <option *ngFor="let prod of providerProducts" [value]="prod.id">
+                      {{ prod.name }}
+                    </option>
+                  </select>
+                  <div class="form-group">
+                    <label> Amount </label>
+                    <input class="form-control {{
+                      this.orderLineForm.get('requestedQuantity')?.errors ? 'is-invalid' : ''
+                    }}" placeholder="1" type="number" formControlName="requestedQuantity" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <button [disabled]="!isProviderValid" class="btn btn-fill btn-success" (click)="onSubmitProduct()">
+                Add product
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <form [formGroup]="providerForm" (ngSubmit)="onSubmit()">
+            <label></label>
+            <div class="row ">
+
+              <div class="col-md-5 pl-md-4">
+                <div class="form-group">
+                  <label for="exampleInputEmail1"> Comments </label>
+                  <input class="form-control {{
+                  this.providerForm.get('comments')?.errors ? 'is-invalid' : ''
+                }}" formControlName="comments" />
+                </div>
+              </div>
+            </div>
+            <div>
+              <button [disabled]="!isValid" class="btn btn-fill btn-danger" type="submit">
+                Save
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</app-layout>

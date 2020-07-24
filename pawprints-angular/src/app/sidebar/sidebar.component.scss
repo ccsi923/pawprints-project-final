@@ -1,0 +1,25 @@
+.nav-item {
+  color: #fff !important;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  a {
+    width: 80%;
+  }
+}
+
+.drop {
+  font-size: 10px;
+}
+
+.nav-link {
+  padding: 0;
+  width: 100%;
+  transition: all 0.5s linear;
+}
+
+.dropdown-menu-right {
+  overflow-y: auto;
+  transition: all 0.5s linear;
+}
