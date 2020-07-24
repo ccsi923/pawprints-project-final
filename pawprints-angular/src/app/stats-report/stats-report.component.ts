@@ -116,7 +116,7 @@ export class StatsReportComponent implements OnInit {
         labels: status,
         datasets: [
           {
-            label: 'Contacts',
+            label: 'Count',
             fill: true,
             backgroundColor: gradientStroke,
             hoverBackgroundColor: gradientStroke,

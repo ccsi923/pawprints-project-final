@@ -134,7 +134,7 @@ export class ExpensesComponent implements OnInit {
         labels: dates,
         datasets: [
           {
-            label: '',
+            label: 'Amount',
             fill: true,
             backgroundColor: gradientStroke,
             borderColor: '#ec250d',
