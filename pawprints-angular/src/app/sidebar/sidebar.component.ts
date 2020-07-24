@@ -46,6 +46,13 @@ export const ROUTES: RouteInfo[] = [
     icon: 'icon-chart-bar-32',
     class: '',
   },
+  {
+    path: '/client/comments',
+    title: 'Comments',
+    rtlTitle: 'إخطارات',
+    icon: 'icon-chart-bar-32',
+    class: '',
+  },
 ];
 
 @Component({
