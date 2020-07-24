@@ -19,7 +19,7 @@ public class CommentService {
     @Autowired
     private CommentClient commentClient;
 
-    @HystrixCommand(fallbackMethod = "cantFindAllComments")
+    //@HystrixCommand(fallbackMethod = "cantFindAllComments")
     public List<Comment> findAllComments(){
         LOGGER.info("INIT - findAllComments");
         return commentClient.findAllComment();
@@ -30,7 +30,7 @@ public class CommentService {
         throw new CommentClientNotWorkingException("comment-client-service not available!");
     }
 
-    @HystrixCommand(fallbackMethod = "cantCreateComment")
+    //@HystrixCommand(fallbackMethod = "cantCreateComment")
     public Comment createComment(Comment comment){
         LOGGER.info("INIT - findAllCarts");
         return commentClient.createComment(comment);
