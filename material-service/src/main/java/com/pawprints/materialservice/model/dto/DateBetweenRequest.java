@@ -11,4 +11,9 @@ public class DateBetweenRequest {
 
    private LocalDate start;
    private LocalDate end;
+
+   public DateBetweenRequest(LocalDate start, LocalDate end) {
+      this.start = start;
+      this.end = end;
+   }
 }

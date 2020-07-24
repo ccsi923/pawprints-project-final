@@ -20,5 +20,8 @@ public class OrderRequest {
     @NotNull
     private String comments;
 
-
+    public OrderRequest(@NotNull List<OrderLineRequest> orderLineRequests, @NotNull String comments) {
+        this.orderLineRequests = orderLineRequests;
+        this.comments = comments;
+    }
 }

@@ -60,8 +60,6 @@ class AnimalControllerImplTest {
         token = "Bearer " + jwtUtil.generateToken("test");
     }
 
-
-
     @Test
     void findAllByOwner() throws Exception {
         when(animalService.findAllByOwner(Mockito.anyLong())).thenReturn(new ArrayList<Animal>());
