@@ -96,6 +96,7 @@ Follow the next indications to test the project:
 | Material     | [Material-Service](https://material-pawprint-service.herokuapp.com/)         |        
 | Cart         | [Cart-Service](https://cart-pawprint-service.herokuapp.com/)             |
 |Comments     | [Comment-Service](http://client-comments-pawprints-serv.herokuapp.com/)     |
+| Front-End       | [Front-Deployed](https://pawprints-final.web.app) |
 
 2. [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/collections/0d6596bbccc3114aa71f).
 
@@ -138,7 +139,7 @@ User functionality:
 
 * For cloud use the collection created in Postman where all routes are already created [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/collections/0d6596bbccc3114aa71f)
 
-* **Swagger**:The documentation for all requests is available in [Swagger](https://edge-pawprints-service.herokuapp.com/swagger-ui.html#/) by entering the following link (https://edge-pawprints-service.herokuapp.com/swagger-ui.html#/) while having the program rolling in the terminal.
+* **Swagger**:The documentation for all requests is available in [Swagger](https://edge-pawprints-service.herokuapp.com/swagger-ui.html#/) by entering the following link (https://edge-pawprints-service.herokuapp.com/swagger-ui.html#/).
 
 If any doubts do not hesitate to contact me! I look forward to your feedback.
 
